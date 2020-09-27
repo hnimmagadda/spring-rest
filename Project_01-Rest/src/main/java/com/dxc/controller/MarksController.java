@@ -3,6 +3,7 @@ package com.dxc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ public class MarksController {
 	@Autowired
 	MarksRepository markRespository;
 
+	@CrossOrigin(origins="http://localhost:4200")
 	@GetMapping("marks")
 	public List<Marks> getMarks()
 	{
@@ -27,6 +29,7 @@ public class MarksController {
 		return marks;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@GetMapping(path="mark/{id}")
 	public Marks getMark(@PathVariable("id") int id) 
 	{
@@ -34,12 +37,14 @@ public class MarksController {
 		return mark;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("mark")
 	public Marks save(@RequestBody Marks mark)
 	{
 		return markRespository.save(mark);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@PutMapping("mark")
 	public Marks update(Marks mark)
 	{

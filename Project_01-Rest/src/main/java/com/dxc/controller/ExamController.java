@@ -3,6 +3,7 @@ package com.dxc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ public class ExamController {
 	@Autowired
 	ExamRepository examRepository;
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@GetMapping("exams")
 	public List<Exam> getExams()
 	{
@@ -25,6 +27,7 @@ public class ExamController {
 		return exams;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@GetMapping(path="exam/{id}")
 	public Exam getStudent(@PathVariable("id") String id) 
 	{
@@ -32,6 +35,7 @@ public class ExamController {
 		return exam;
 	}	
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("exam")
 	public Exam save(Exam exam)
 	{
